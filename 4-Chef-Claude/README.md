@@ -14,9 +14,8 @@ A React-based recipe assistant application that helps users discover and manage 
 This project is currently under active development. More features and improvements will be added soon.
 
 ## Screenshots
-![Chef Claude Interface](./screenshots/chef-claude-interface.png)
-
-*Current interface showing the ingredient search functionality with a modern black and white theme*
+![Chef Claude Interface](./src/images/screenshot/screenshot.png)
+*Current interface of Chef Claude with ingredient search functionality*
 
 ## Tech Stack
 - React
