@@ -1,64 +1,4 @@
-import React from 'https://cdn.skypack.dev/react';
-
-export default function Main() {
-    const [ingridients, setIngridients] = React.useState([
-        "pasta",
-        "tomato sauce",
-        "mozzarella",
-        "pepperoni",
-        "mushrooms",
-        "olives"
-    ]);
-
-    const [recipe, setRecipe] = React.useState(false);
-
-    function recipeShown() {
-        setRecipe(!recipe);
-    }
-
-    const listItems = ingridients.map((ingridient) => (
-        <li key={ingridient}>{ingridient}</li>
-    ));
-
-    function addIngredient(event) {
-        event.preventDefault(); // Prevent form submission and page reload
-        const formData = new FormData(event.currentTarget);
-        const newIngridient = formData.get("ingridient");
-        if (newIngridient) {
-            setIngridients((prevIngridients) => [...prevIngridients, newIngridient]);
-            event.target.reset(); // Clear the input field after submission
-        }
-    }
-
-    return (
-        <main>
-            <form onSubmit={addIngredient} className="search-form">
-                <input 
-                    type="text" 
-                    placeholder="e.g. pasta"
-                    aria-label="Add Ingredients"
-                    name="ingridient"
-                />
-                <button type="submit">Add Ingredients</button>
-            </form>
-
-            {ingridients.length > 0 && <section>
-
-                <h2>Ingredients on hand:</h2>
-                <ul className="ingridients-list" aria-live="polite">
-                    {listItems}
-                </ul>
-                {ingridients.length > 3 && <div className="get-recipe-container">
-                    <div>
-                        <h3>Get a recipe?</h3>
-                        <p>Generate a random recipe with these ingridients.</p>
-                    </div>
-                    <button onClick={recipeShown}>Get a recipe</button>
-                </div>}    
-                
-            </section>}
-
-            {recipe && <section>
+<section>
     <h2>Recommendations:</h2>
     <article className="recommendation">
         <h1>Spaghetti Aglio e Olio</h1>
@@ -96,8 +36,4 @@ export default function Main() {
         <p>This dish pairs wonderfully with a side salad or crusty garlic bread. Enjoy with a glass of white wine for an authentic Italian experience.</p>
         <strong>Tip:</strong> Adjust the amount of chili flakes to suit your spice tolerance.
     </article>
-</section>}
-
-        </main>
-    );
-}
+</section>

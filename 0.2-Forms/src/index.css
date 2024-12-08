@@ -1,38 +1,48 @@
+:root {
+    --primary-color: #3498db;
+    --background-color: #f4f6f7;
+    --text-color: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    background-color: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    min-height: 100vh;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .form-container {
     background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    border: 1px solid var(--border-color);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 h1 {
-    color: #333;
     text-align: center;
     margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 .form-group {
@@ -50,33 +60,43 @@ h1 {
 label {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #4a5568;
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"] {
+    width: 100%;
     padding: 0.75rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     font-size: 1rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.3s ease;
 }
 
+input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
 }
 
 input[type="checkbox"] {
-    width: 1.25rem;
-    height: 1.25rem;
-    accent-color: #667eea;
-}
-
-input.error {
-    border-color: #e53e3e;
+    margin-right: 0.5rem;
 }
 
 .error-message {
@@ -85,28 +105,31 @@ input.error {
     margin-top: 0.25rem;
 }
 
-button {
-    background-color: #667eea;
-    color: white;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #5a67d8;
-}
-
-button:active {
-    background-color: #4c51bf;
+input.error {
+    border-color: #e53e3e;
 }
 
 @media (max-width: 480px) {
     .form-container {
         padding: 1.5rem;
     }
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+legend {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
 }
